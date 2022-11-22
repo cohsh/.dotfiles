@@ -1,0 +1,12 @@
+#!/bin/sh
+export GTK_IM_MODULE=fcitx5
+export QT_IM_MODULE=fcitx5
+export XMODIFIERS=@im=fcitx5
+
+xset r rate 300 25
+xmodmap ~/.Xmodmap
+sh ~/.fehbg
+
+fcitx5 &
+imwheel &
+compton -b

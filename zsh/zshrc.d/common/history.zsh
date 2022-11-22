@@ -1,0 +1,3 @@
+HISTFILE=~/.cache/.zsh_history
+HISTSIZE=3141
+SAVEHIST=3141

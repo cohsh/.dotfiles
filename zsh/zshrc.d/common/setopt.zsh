@@ -1,0 +1,9 @@
+setopt auto_cd
+setopt extended_glob
+setopt hist_ignore_all_dups
+setopt hist_reduce_blanks
+setopt interactive_comments
+setopt no_beep
+setopt print_eight_bit
+setopt prompt_subst
+setopt share_history
