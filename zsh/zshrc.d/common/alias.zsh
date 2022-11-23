@@ -1,11 +1,23 @@
 # alias
+## OS
+case $(uname) in
+    Darwin*)
+        alias ls='ls -alrtFG'
+        ;;
+    Linux*)
+        alias ls='ls -alrtF --color=auto'
+        alias open='xdg-open'
+        alias pbcopy='xsel --clipboard --input'
+        alias pbpaste='xsel --clipboard --output'
+        ;;
+esac
+
 ## replacement
-alias cp='cp -fir'
+alias cp='cp -i'
 alias df='df -h'
 alias du='du -h'
 alias grep='grep --color=auto'
 alias less='less -R'
-alias ls='ls -alrtF --color=auto'
 alias mkdir='mkdir -p'
 alias mv='mv -i'
 alias sudo='sudo '
@@ -13,7 +25,7 @@ alias sudo='sudo '
 ## 1-character
 alias a='alias'
 alias b='vivaldi-stable'
-alias c='xsel --clipboard --input'
+alias c='pbcopy'
 alias d='less'
 alias e=''
 alias f=''
@@ -25,18 +37,18 @@ alias k=''
 alias l='clear && ls'
 alias m='mkdir'
 alias n=''
-alias o='xdg-open'
-alias p='xsel --clipboard --output'
+alias o='open'
+alias p='pbpaste'
 alias q='clear'
 alias r='rm'
 alias s='ssh'
-alias t='tree'
+alias t='tree -C'
 alias u=''
 alias v='nvim'
 alias w=''
 alias x='exit'
 alias y=''
-alias z=_zathura
+alias z=''
 
 ## 2-characters
 alias to='touch'
@@ -97,8 +109,3 @@ alias kess='less'
 ## shell
 alias zshrc='nvim ~/.zshrc'
 alias sozsh='source ~/.zshrc'
-
-## function
-function _zathura() {
-    zathura $1 &;
-}
