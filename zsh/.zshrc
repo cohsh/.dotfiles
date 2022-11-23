@@ -5,7 +5,9 @@ do
     source $ZSHHOME/$file
 done < $ZSHHOME/zshrc.conf
 
-for file in $ZSHHOME/local/*.zsh
-do
-    [ -r $file ] && source $file
-done
+if [ -d $ZSHHOME/local ]; then
+    for file in $ZSHHOME/local/*.zsh
+    do
+        [ -r $file ] && source $file
+    done
+fi
