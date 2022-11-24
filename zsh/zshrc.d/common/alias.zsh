@@ -109,3 +109,6 @@ alias kess='less'
 ## shell
 alias zshrc='nvim ~/.zshrc'
 alias sozsh='source ~/.zshrc'
+
+## process
+alias flill='kill -9'
