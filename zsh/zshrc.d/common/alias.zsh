@@ -51,6 +51,7 @@ alias y=''
 alias z=''
 
 ## 2-characters
+alias ot='odt2txt'
 alias to='touch'
 
 ### 3-characters
@@ -113,3 +114,8 @@ alias sozsh='source ~/.zshrc'
 
 ## process
 alias flill='kill -9'
+
+## function
+function ll() {
+    ls *.$1
+}
