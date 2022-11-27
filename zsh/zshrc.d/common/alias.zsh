@@ -20,35 +20,36 @@ alias grep='grep --color=auto'
 alias less='less -R'
 alias mkdir='mkdir -p'
 alias mv='mv -i'
+alias rm='rm -i'
 alias sudo='sudo '
 
 ## 1-character
-alias a='alias'
+alias a=''
 alias b='vivaldi-stable'
 alias c='pbcopy'
 alias d='gimp'
-alias e=''
+alias e='less'
 alias f='feh'
 alias g='git'
 alias h='cd ~'
 alias i='inkscape'
 alias j=''
-alias k=''
-alias l='less'
+alias k='kill -9'
+alias l='ls'
 alias m='mplayer'
-alias n=''
+alias n='npm'
 alias o='open'
 alias p='pbpaste'
 alias q='clear'
 alias r='rm'
-alias s='ssh'
+alias s='ls'
 alias t='tree -C'
-alias u=''
+alias u='cd ..'
 alias v='nvim'
 alias w=''
 alias x='exit'
 alias y=''
-alias z=''
+alias z='zathura'
 
 ## 2-characters
 alias gg='googler'
@@ -92,12 +93,6 @@ alias pac-r='pacman -Rs'
 alias pac-u='pacman -Syu'
 alias pac-y='pacman -Syy'
 
-## sect
-alias code='nvim'
-alias emacs='nvim'
-alias ed='nvim'
-alias nano='nvim'
-
 ## power
 alias sys-o='systemctl poweroff'
 alias sys-r='systemctl reboot'
@@ -120,8 +115,6 @@ alias sozsh='source ~/.zshrc'
 ## trans
 alias transj='trans ja:en'
 alias transe='trans en:ja'
-## process
-alias flill='kill -9'
 
 ## function
 function lle() {
