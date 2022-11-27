@@ -2,10 +2,10 @@
 ## OS
 case $(uname) in
     Darwin*)
-        alias ls='ls -alrtFG'
+        alias ls='ls -lrtFG'
         ;;
     Linux*)
-        alias ls='ls -alrtF --color=auto'
+        alias ls='ls -lrtF --color=auto'
         alias open='xdg-open'
         alias pbcopy='xsel --clipboard --input'
         alias pbpaste='xsel --clipboard --output'
@@ -52,6 +52,7 @@ alias z=''
 
 ## 2-characters
 alias gg='googler'
+alias la='ls -A'
 alias ll='clear && ls'
 alias ot='odt2txt'
 alias to='touch'
