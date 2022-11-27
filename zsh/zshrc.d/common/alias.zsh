@@ -85,13 +85,12 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias dot='cd ~/.dotfiles'
 alias cache='cd ~/.cache'
-alias down='cd ~/.cache/'
 
 ## pacman
-alias pac-s='sudo pacman -S'
-alias pac-r='sudo pacman -Rs'
-alias pac-u='sudo pacman -Syu'
-alias pac-y='sudo pacman -Syy'
+alias pac-s='pacman -S'
+alias pac-r='pacman -Rs'
+alias pac-u='pacman -Syu'
+alias pac-y='pacman -Syy'
 
 ## sect
 alias code='nvim'
