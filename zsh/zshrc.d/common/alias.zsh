@@ -26,7 +26,7 @@ alias sudo='sudo '
 alias a='alias'
 alias b='vivaldi-stable'
 alias c='pbcopy'
-alias d='less'
+alias d='gimp'
 alias e=''
 alias f='feh'
 alias g='git'
@@ -34,7 +34,7 @@ alias h='cd ~'
 alias i='inkscape'
 alias j=''
 alias k=''
-alias l='ls'
+alias l='less'
 alias m='mplayer'
 alias n=''
 alias o='open'
@@ -105,6 +105,7 @@ alias sys-s='systemctl suspend'
 
 ## network
 alias wifi='nmtui'
+alias pingg='ping -c 3 www.google.com'
 
 ## typo
 alias dc='cd'
@@ -126,3 +127,7 @@ alias flill='kill -9'
 function lle() {
     ls *.$1
 }
+
+function llp() {
+    find . -type f -name "*" -newermt "$1-01-01" -and ! -newermt "$2-12-31" -ls
+    }
