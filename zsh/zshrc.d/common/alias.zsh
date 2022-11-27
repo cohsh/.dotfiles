@@ -28,14 +28,14 @@ alias b='vivaldi-stable'
 alias c='pbcopy'
 alias d='less'
 alias e=''
-alias f=''
+alias f='feh'
 alias g='git'
 alias h='cd ~'
 alias i='inkscape'
 alias j=''
 alias k=''
-alias l='clear && ls'
-alias m='mkdir'
+alias l='ls'
+alias m='mplayer'
 alias n=''
 alias o='open'
 alias p='pbpaste'
@@ -51,11 +51,14 @@ alias y=''
 alias z=''
 
 ## 2-characters
+alias gg='googler'
+alias ll='clear && ls'
 alias ot='odt2txt'
 alias to='touch'
 
 ### 3-characters
 alias del='rm -rf'
+alias lld='ls -d */'
 
 ## chmod
 alias 644='chmod 644'
@@ -68,11 +71,12 @@ alias gb='git branch'
 alias gc='git commit'
 alias gd='git diff'
 alias gf='git fetch'
-alias gl='git pull'
-alias gp='git push'
+alias gl='git log'
 alias gr='git rm'
 alias gs='git status'
 alias gco='git checkout -b'
+alias gpl='git pull'
+alias gps='git push'
 
 ## cd
 alias ..='cd ..'
@@ -109,13 +113,16 @@ alias sl='ls'
 alias kess='less'
 
 ## shell
-alias zshrc='nvim ~/.zshrc'
+alias valias='nvim ~/.dotfiles/zsh/zshrc.d/common/alias.zsh'
 alias sozsh='source ~/.zshrc'
 
+## trans
+alias transj='trans ja:en'
+alias transe='trans en:ja'
 ## process
 alias flill='kill -9'
 
 ## function
-function ll() {
+function lle() {
     ls *.$1
 }
