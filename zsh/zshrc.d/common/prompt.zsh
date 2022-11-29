@@ -27,3 +27,11 @@ TMOUT=1
 TRAPALRM(){
     zle reset-prompt
 }
+
+function set-prompt () {
+    if [ "$1" = 'pub' ]; then
+        PROMPT="%B%F{3}%#%f%b "
+    else
+        PROMPT="%B%F{3}ζ*'ヮ')ζ%#%f%b "
+    fi
+}
