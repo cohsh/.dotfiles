@@ -117,6 +117,10 @@ alias transj='trans ja:en'
 alias transe='trans en:ja'
 
 ## function
+function bu() {
+    cp $1 $1.back
+}
+
 function lle() {
     ls *.$1
 }
