@@ -2,7 +2,7 @@ local wezterm = require('wezterm')
 
 local config = {
 	font = wezterm.font('Source Code Pro'),
-	font_size = 18.0,
+	font_size = 16.0,
 	use_ime = true,
 	color_scheme = 'Orangish (terminal.sexy)',
 	window_padding = { left = 0, right = 0, top = 0, bottom = 0 },
