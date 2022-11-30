@@ -144,5 +144,7 @@ client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 client.background       #FFFFFF
 
 bar {
+    position top
 	status_command i3blocks
+    tray_output primary
 }
