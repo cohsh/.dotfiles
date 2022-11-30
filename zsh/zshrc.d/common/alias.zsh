@@ -76,7 +76,7 @@ alias gf='git fetch'
 alias gl='git log'
 alias gr='git rm'
 alias gs='git status'
-alias gco='git checkout -b'
+alias gco='git checkout'
 alias gpl='git pull'
 alias gps='git push'
 
