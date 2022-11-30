@@ -70,7 +70,7 @@ alias 777='chmod 777'
 ## git
 alias ga='git add'
 alias gb='git branch'
-alias gc='git commit'
+alias gc='git commit -m'
 alias gd='git diff'
 alias gf='git fetch'
 alias gl='git log'
