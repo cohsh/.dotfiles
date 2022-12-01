@@ -3,9 +3,11 @@
 case $(uname) in
     Darwin*)
         alias ls='ls -lrtFG'
+        alias web='open -a Safari'
         ;;
     Linux*)
         alias ls='ls -lrtF --color=auto'
+        alias web='vivaldi-stable'
         alias open='xdg-open'
         alias pbcopy='xsel --clipboard --input'
         alias pbpaste='xsel --clipboard --output'
@@ -25,7 +27,7 @@ alias sudo='sudo '
 
 ## 1-character
 alias a=''
-alias b='vivaldi-stable'
+alias b='cd $OLDPWD'
 alias c='pbcopy'
 alias d='gimp'
 alias e='less'
@@ -46,7 +48,7 @@ alias s='ls'
 alias t='tree -C'
 alias u='cd ..'
 alias v='nvim'
-alias w=''
+alias w='web'
 alias x='exit'
 alias y=''
 alias z='zathura'
@@ -84,7 +86,10 @@ alias gps='git push'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+
 alias dot='cd ~/.dotfiles'
+alias dev-g='cd ~/dev/git'
+alias dev-u='cd ~/dev/$USER'
 alias cache='cd ~/.cache'
 
 ## pacman
