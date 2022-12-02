@@ -120,11 +120,6 @@ alias sozsh='source ~/.zshrc'
 alias t-j='trans ja:en'
 alias t-e='trans en:ja'
 
-## function
-function bu() {
-    cp $1 $1.back
-}
-
 function lle() {
     ls *.$1
 }
