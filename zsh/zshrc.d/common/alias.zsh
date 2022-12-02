@@ -57,7 +57,6 @@ alias z='zathura'
 alias gg='googler'
 alias la='ls -A'
 alias ll='clear && ls'
-alias ot='odt2txt'
 alias to='touch'
 
 ### 3-characters
