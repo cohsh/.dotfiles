@@ -118,8 +118,8 @@ alias valias='nvim ~/.dotfiles/zsh/zshrc.d/common/alias.zsh'
 alias sozsh='source ~/.zshrc'
 
 ## trans
-alias transj='trans ja:en'
-alias transe='trans en:ja'
+alias t-j='trans ja:en'
+alias t-e='trans en:ja'
 
 ## function
 function bu() {
