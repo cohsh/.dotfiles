@@ -87,8 +87,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 
 alias dot='cd ~/.dotfiles'
-alias dev-g='cd ~/dev/git'
-alias dev-u='cd ~/dev/$USER'
+alias dev='cd ~/dev/$USER'
 alias cache='cd ~/.cache'
 
 ## pacman
