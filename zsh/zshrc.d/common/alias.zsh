@@ -123,7 +123,3 @@ alias t-e='trans en:ja'
 function lle() {
     ls *.$1
 }
-
-function llp() {
-    find . -type f -name "*" -newermt "$1-01-01" -and ! -newermt "$2-12-31" -ls
-    }
