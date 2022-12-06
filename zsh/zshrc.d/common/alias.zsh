@@ -13,7 +13,7 @@ case $(uname) in
         alias pbpaste='xsel --clipboard --output'
         ;;
     FreeBSD*)
-        alias ls='ls -lrtF --color=auto'
+        alias ls='ls -lrtFG'
         ;;
 esac
 
