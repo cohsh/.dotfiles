@@ -12,6 +12,9 @@ case $(uname) in
         alias pbcopy='xsel --clipboard --input'
         alias pbpaste='xsel --clipboard --output'
         ;;
+    FreeBSD*)
+        alias ls='ls -lrtF --color=auto'
+        ;;
 esac
 
 ## replacement
