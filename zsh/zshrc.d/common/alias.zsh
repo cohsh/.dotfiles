@@ -53,7 +53,7 @@ alias u='cd ..'
 alias v='nvim'
 alias w='web'
 alias x='exit'
-alias y=''
+alias y='yarn'
 alias z='zathura'
 
 ## 2-characters
