@@ -59,6 +59,7 @@ bindsym $mod+Next workspace next
 
 set $primary DP-0
 set $secondary DP-4
+set $tertiary HDMI-0
 
 set $ws1 "1:1"
 set $ws2 "2:2"
@@ -84,7 +85,7 @@ workspace $ws8     output $secondary
 workspace $ws9     output $secondary
 workspace $ws10     output $secondary
 workspace $ws_minus output $secondary
-workspace $ws_equal output $secondary
+workspace $ws_equal output $tertiary
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
