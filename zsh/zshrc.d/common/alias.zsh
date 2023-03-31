@@ -9,6 +9,7 @@ case $(uname) in
         alias ls='ls -lrtF --color=auto'
         alias web='vivaldi-stable'
         alias open='xdg-open'
+        alias exe='powershell.exe /c start'
         alias pbcopy='xsel --clipboard --input'
         alias pbpaste='xsel --clipboard --output'
         ;;
