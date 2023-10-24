@@ -128,3 +128,7 @@ alias t-e='trans en:ja'
 function lle() {
     ls *.$1
 }
+
+function countlines() {
+    find . -name "*.$1" -type f | xargs cat | wc -l
+}
