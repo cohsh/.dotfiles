@@ -1,3 +1,5 @@
 wezterm/dconf/
 wezterm/google-chrome/
 wezterm/mimeapps.list
+
+zsh/zshrc.d/local/
