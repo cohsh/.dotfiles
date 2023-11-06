@@ -93,8 +93,14 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 
 alias dot='cd ~/.dotfiles'
+
 alias dev='cd ~/dev/$USER'
 alias work='cd ~/work'
+
+alias pro='cd ~/projects'
+alias cohsh='cd ~/projects/cohsh'
+alias others='cd ~/projects/others'
+
 alias cache='cd ~/.cache'
 
 ## pacman
