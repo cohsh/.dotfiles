@@ -100,6 +100,7 @@ alias work='cd ~/work'
 alias pro='cd ~/projects'
 alias cohsh='cd ~/projects/cohsh'
 alias others='cd ~/projects/others'
+alias unsorted='cd ~/projects/unsorted'
 
 alias cache='cd ~/.cache'
 
