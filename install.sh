@@ -10,6 +10,8 @@ then
     exit
 fi
 
+mkdir ~/.config
+
 __remove_linklist_comment "$linklist" | while read target link
 do
     target=$(eval echo "${PWD}/${target}")
