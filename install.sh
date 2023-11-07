@@ -10,7 +10,7 @@ then
     exit
 fi
 
-mkdir ~/.config
+mkdir -p ~/.config
 
 __remove_linklist_comment "$linklist" | while read target link
 do
