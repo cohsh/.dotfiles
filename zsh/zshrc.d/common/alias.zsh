@@ -98,7 +98,7 @@ alias dev='cd ~/dev/$USER'
 alias work='cd ~/work'
 
 alias pro='cd ~/projects'
-alias cohsh='cd ~/projects/cohsh'
+alias me='cd ~/projects/$USER'
 alias others='cd ~/projects/others'
 alias unsorted='cd ~/projects/unsorted'
 
