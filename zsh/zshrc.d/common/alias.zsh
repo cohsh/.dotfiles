@@ -92,7 +92,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
-alias dot='cd ~/.dotfiles'
+alias dotfiles='cd ~/.dotfiles'
 
 alias dev='cd ~/dev/$USER'
 alias work='cd ~/work'
