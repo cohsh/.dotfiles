@@ -29,7 +29,7 @@ TRAPALRM(){
 }
 
 function set-prompt () {
-    if [ "$1" = 'pub' ]; then
+    if [ "$1" = 'formal' ]; then
         PROMPT="%B%F{3}%#%f%b "
     else
         PROMPT="%B%F{3}ζ*'ヮ')ζ%#%f%b "
