@@ -19,58 +19,28 @@ case $(uname) in
 esac
 
 ## replacement
-alias cp='cp -i'
 alias df='df -h'
 alias du='du -h'
 alias grep='grep --color=auto'
 alias less='less -R'
 alias mkdir='mkdir -p'
-alias mv='mv -i'
-alias rm='rm -i'
 alias sudo='sudo '
 
-## 1-character
-alias a=''
-alias b='cd $OLDPWD'
-alias c='pbcopy'
-alias d='date +%Y%m%d'
-alias e=''
-alias f=''
-alias g='git'
-alias h='cd ~'
-alias i='inkscape'
-alias j=''
-alias k='kill -9'
-alias l='ls'
-alias m=''
-alias o='open'
-alias p='pbpaste'
-alias q='clear'
-alias r='rm'
-alias s='ls'
-alias t='tree -C'
-alias u=''
-alias v='nvim'
-alias w='web'
-alias x='exit'
-alias y='yarn'
-alias z='zathura'
+## interactive TTY only
+if [[ -o interactive && -t 0 ]]; then
+    alias cp='cp -i'
+    alias mv='mv -i'
+    alias rm='rm -i'
+fi
 
 ## 2-characters
 alias ca='cargo'
-alias gg='googler'
 alias la='ls -A'
 alias ll='clear && ls'
 alias to='touch'
 
 ### 3-characters
-alias del='rm -rf'
 alias lld='ls -d */'
-
-## chmod
-alias 644='chmod 644'
-alias 755='chmod 755'
-alias 777='chmod 777'
 
 ## git
 alias ga='git add'
@@ -119,7 +89,6 @@ alias wifi='nmtui'
 alias pingg='ping -c 3 www.google.com'
 
 ## typo
-alias dc='cd'
 alias ks='ls'
 alias sl='ls'
 alias kess='less'
