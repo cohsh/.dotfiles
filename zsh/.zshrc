@@ -1,9 +1,9 @@
 ZSHHOME="$HOME/zshrc.d"
 
-while read file
+for file in $(<$ZSHHOME/zshrc.conf)
 do
     source $ZSHHOME/$file
-done < $ZSHHOME/zshrc.conf
+done
 
 if [ -d $ZSHHOME/local ]; then
     for file in $ZSHHOME/local/*.zsh
