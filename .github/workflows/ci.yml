@@ -1,0 +1,17 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update && sudo apt-get install -y zsh lua5.4
+      - run: sh -n install.sh
+      - run: |
+          zsh -n zsh/.zshrc
+          for f in zsh/zshrc.d/common/*.zsh; do zsh -n "$f"; done
+      - run: luac5.4 -p wezterm/wezterm.lua
