@@ -1,7 +1,7 @@
 local wezterm = require('wezterm')
 
 local config = {
-	font = wezterm.font('Source Code Pro'),
+	font = wezterm.font('JetBrains Mono'),
 	font_size = 18.0,
 	use_ime = true,
 	color_scheme = 'pinky (base16)',
