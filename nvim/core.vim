@@ -73,7 +73,6 @@ set showmatch
 set matchtime=1
 
 " misc
-set ambiwidth=double
 set fileformats=unix,dos,mac
 set laststatus=2
 set showcmd
