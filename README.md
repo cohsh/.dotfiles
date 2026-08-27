@@ -26,7 +26,9 @@ cd .dotfiles
 `install.sh` creates the symbolic links listed in `install.conf`.
 Entries with an OS field (`linux` / `darwin`) are linked only on that OS.
 
-Machine-local zsh settings go in `zsh/zshrc.d/local/` (ignored by git).
+Machine-local zsh settings go in `zsh/zshrc.d/local/`, which is ignored by
+git. Every `*.zsh` dropped there is sourced at the end of `.zshrc`, so host-
+specific or private settings can be kept outside this repository.
 
 ## License
 
