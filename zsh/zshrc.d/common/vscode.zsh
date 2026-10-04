@@ -1,66 +1,71 @@
 # vscode: give every project window of VS Code a color of its own
 #
 # `code <dir>` (exactly one argument, an existing directory) opens the
-# folder through a one-folder workspace file kept in $VSCODE_WS_DIR
-# (default: ~/.local/state/vscode-ws). The workspace settings color the
-# title bar, activity bar and status bar. A folder opened for the first
-# time takes the next color of the palette and keeps it; edit its
-# workspace file to change it. Nothing is written into the folder.
+# folder as usual. If the folder has no .vscode/settings.json yet (or only
+# an empty one), one is written first that colors the title bar and the
+# status bar with the next color of a muted palette, so every project
+# keeps a color of its own. In a git work tree the file is also added to
+# .git/info/exclude, so it is never committed. A folder whose
+# .vscode/settings.json has any settings is left as it is.
 #
-# Any other use of `code` is passed through unchanged, and so is every
-# call while $VSCODE_WS_DIR is not an absolute path (so that workspace
-# files are never written into the current directory). To open a folder
-# without a color, run `command code <dir>`.
+# Other extensions that manage these colors (e.g. Peacock) may remove
+# them again; use one or the other.
+#
+# Any other use of `code` is passed through unchanged. To open a folder
+# without giving it a color, run `command code <dir>`.
 
 if (( $+commands[code] )); then
-    if [[ -z $VSCODE_WS_DIR ]]; then
-        if [[ $XDG_STATE_HOME == /* ]]; then
-            VSCODE_WS_DIR=$XDG_STATE_HOME/vscode-ws
-        else
-            VSCODE_WS_DIR=$HOME/.local/state/vscode-ws
-        fi
-    fi
-
     function code() {
-        if (( $# != 1 )) || [[ ! -d $1 || $VSCODE_WS_DIR != /* ]]; then
-            command code "$@"
-            return
+        if (( $# == 1 )) && [[ -d $1 ]]; then
+            __code_color ${1:A}
         fi
-
-        local dir=${1:A}
-        local id=$(print -rn -- "$dir" | cksum | cut -d ' ' -f 1)
-        local ws=$VSCODE_WS_DIR/$id/${dir:t}.code-workspace
-
-        if [[ ! -e $ws ]]; then
-            local -a palette=('#1f6feb' '#8250df' '#bf3989' '#cf222e'
-                              '#bc4c00' '#9a6700' '#1a7f37' '#0a7c86'
-                              '#0550ae' '#6639ba' '#953800' '#57606a')
-            local -a known=($VSCODE_WS_DIR/*/*.code-workspace(N))
-            local color=${palette[$(( ${#known} % ${#palette} + 1 ))]}
-            local jdir=${${dir//\\/\\\\}//\"/\\\"}
-
-            command mkdir -p -- ${ws:h} || return
-            cat > $ws.tmp <<EOF || return
-{
-  "folders": [ { "path": "$jdir" } ],
-  "settings": {
-    "workbench.colorCustomizations": {
-      "titleBar.activeBackground": "$color",
-      "titleBar.activeForeground": "#ffffff",
-      "titleBar.inactiveBackground": "${color}99",
-      "titleBar.inactiveForeground": "#ffffffcc",
-      "activityBar.background": "$color",
-      "activityBar.foreground": "#ffffff",
-      "activityBar.inactiveForeground": "#ffffff99",
-      "statusBar.background": "$color",
-      "statusBar.foreground": "#ffffff"
+        command code "$@"
     }
+
+    # Write $1/.vscode/settings.json with the next palette color unless the
+    # file has settings already; the index of the next color is kept in a
+    # state file.
+    function __code_color() {
+        local dir=$1 settings=$1/.vscode/settings.json
+        if [[ -e $settings ]]; then
+            local content=${"$(<$settings)"//[[:space:]]/}
+            [[ -z $content || $content == '{}' ]] || return
+        fi
+        [[ -w $dir ]] || return
+
+        local -a palette=('#374b62' '#624737' '#376247' '#623759'
+                          '#625537' '#375962' '#62373d' '#526237'
+                          '#473762' '#37625c' '#5c3762' '#373d62')
+        local state=${XDG_STATE_HOME:-$HOME/.local/state}/vscode-color
+        [[ $state == /* ]] || state=$HOME/.local/state/vscode-color
+        local next=0
+        [[ -r $state/next ]] && next=$(<$state/next)
+        [[ $next == <-> ]] || next=0
+        local color=${palette[$(( next % ${#palette} + 1 ))]}
+
+        command mkdir -p -- $dir/.vscode || return
+        cat > $settings.tmp <<EOF || return
+{
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "$color",
+    "titleBar.activeForeground": "#e6e6e6",
+    "titleBar.inactiveBackground": "${color}b3",
+    "titleBar.inactiveForeground": "#e6e6e6b3",
+    "statusBar.background": "$color",
+    "statusBar.foreground": "#e6e6e6"
   }
 }
 EOF
-            command mv -f -- $ws.tmp $ws || return
-        fi
+        command mv -f -- $settings.tmp $settings || return
+        command mkdir -p -- $state && print -r -- $(( next + 1 )) > $state/next
 
-        command code "$ws"
+        # keep the file out of git (relative to the root of the work tree)
+        if (( $+commands[git] )) && git -C $dir rev-parse --is-inside-work-tree &> /dev/null; then
+            local exclude=$(git -C $dir rev-parse --git-path info/exclude)
+            [[ $exclude == /* ]] || exclude=$dir/$exclude
+            local entry=/$(git -C $dir rev-parse --show-prefix).vscode/settings.json
+            command mkdir -p -- ${exclude:h}
+            command grep -qxF -- $entry $exclude 2> /dev/null || print -r -- $entry >> $exclude
+        fi
     }
 fi
