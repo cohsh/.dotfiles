@@ -1,56 +1,57 @@
-# alias
+# Convenience aliases use their own names; keep standard commands unchanged.
+alias l='ls'
+
 ## OS
 case $(uname) in
     Darwin*)
-        alias ls='ls -lrtFG'
+        alias l='ls -lrtFG'
         alias web='open -a Safari'
+        alias clipcopy='pbcopy'
+        alias clippaste='pbpaste'
         ;;
     Linux*)
-        alias ls='ls -lrtF --color=auto'
+        alias l='ls -lrtF --color=auto'
         alias web='vivaldi-stable'
-        alias open='xdg-open'
+        alias xopen='xdg-open'
         alias exe='powershell.exe /c start'
-        alias pbcopy='xsel --clipboard --input'
-        alias pbpaste='xsel --clipboard --output'
+        alias clipcopy='xsel --clipboard --input'
+        alias clippaste='xsel --clipboard --output'
         ;;
     FreeBSD*)
-        alias ls='ls -lrtFG'
+        alias l='ls -lrtFG'
         ;;
 esac
 
-## replacement
-alias df='df -h'
-alias du='du -h'
-alias grep='grep --color=auto'
-alias less='less -R'
-alias mkdir='mkdir -p'
-alias sudo='sudo '
+## explicit options
+alias dfh='df -h'
+alias duh='du -h'
+alias grepc='grep --color=auto'
+alias lessr='less -R'
+alias mkp='mkdir -p'
 
-## interactive TTY only
-if [[ -o interactive && -t 0 ]]; then
-    alias cp='cp -i'
-    alias mv='mv -i'
-    alias rm='rm -i'
-fi
+## explicit confirmation
+alias cpi='cp -i'
+alias mvi='mv -i'
+alias rmi='rm -i'
 
 ## 2-characters
 alias ca='cargo'
-alias la='ls -A'
-alias ll='clear && ls'
+alias la='l -A'
+alias ll='clear && l'
 alias to='touch'
 
-### 3-characters
-alias lld='ls -d */'
+## directories
+alias ldirs='l -d */'
 
 ## git
 alias ga='git add'
 alias gb='git branch'
-alias gc='git commit -m'
+alias gcm='git commit -m'
 alias gd='git diff'
 alias gf='git fetch'
 alias gl='git log'
 alias gr='git rm'
-alias gs='git status'
+alias gst='git status'
 alias gco='git checkout'
 alias gme='git merge'
 alias gpl='git pull'
@@ -89,9 +90,8 @@ alias wifi='nmtui'
 alias pingg='ping -c 3 www.google.com'
 
 ## typo
-alias ks='ls'
-alias sl='ls'
-alias kess='less'
+alias ks='l'
+alias kess='lessr'
 
 ## shell
 alias valias='nvim ~/.dotfiles/zsh/zshrc.d/common/alias.zsh'
@@ -102,7 +102,7 @@ alias t-j='trans ja:en'
 alias t-e='trans en:ja'
 
 function lle() {
-    ls *.$1
+    l *.$1
 }
 
 function countlines() {
